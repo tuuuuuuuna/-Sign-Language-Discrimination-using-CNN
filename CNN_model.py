@@ -3,9 +3,9 @@ from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropout
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 import matplotlib.pyplot as plt
-# import keras.backend.tensorflow_backend as K
+import keras.backend.tensorflow_backend as K
 
-import tensorflow as tf
+# import tensorflow as tf
 
 """""""""
 config = tf.compat.v1.ConfigProto()

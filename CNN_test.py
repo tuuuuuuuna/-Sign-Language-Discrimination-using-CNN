@@ -33,6 +33,8 @@ prediction = model.predict(x)
 np.set_printoptions(formatter = {'float': lambda x : "{0:0.3f}".format(x)})
 cnt = 0
 print(float(ord(categories[1])- 65))
+cnt_O = 0
+cnt_X = 0
 for i in prediction:
     pre_ans = i.argmax()
     pre_ans_str = ''
@@ -44,4 +46,13 @@ for i in prediction:
     print("해당" + filenames[cnt]+"이미지는 "
           +pre_ans_str + "으로 추정됩니다.")
     cnt += 1
+    if chr((cnt//100)+65) == pre_ans_str:
+        cnt_O += 1
+    else: cnt_X += 1
 
+# 정확도 측정
+cnt_all =  cnt_O + cnt_X
+print("전체 데이터 수 : ", cnt_all)
+print("맞은 갯수 : ", cnt_O)
+print("틀린 갯수 : ", cnt_X)
+print("예측 정확도 : ", cnt_O/cnt_all*100,"%")
